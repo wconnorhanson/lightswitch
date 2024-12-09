@@ -49,6 +49,13 @@ body {
 
 .lightswitch {
     border-radius: 5px;
-    margin: 0 5px;
+    margin: 10px 5px;
 }
 
+#lightStatus {
+    border-bottom: 5px solid var(--on);
+}
+
+#lightStatus.on {
+    border-bottom: 5px solid var(--off);
+}

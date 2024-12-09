@@ -12,28 +12,48 @@
 //     }
 // });
 
-const switch1 = document.getElementById("switch1");
-const switch2 = document.getElementById("switch2");
+// const switch1 = document.getElementById("switch1");
+// const switch2 = document.getElementById("switch2");
+
+const lightswitches = document.querySelectorAll('.lightswitch');
+const btnText1 = document.getElementById('lightAlt1');
+const btnText2 = document.getElementById('lightAlt2');
 const body = document.getElementById("body");
-const light = document.getElementById("lightStatus");
+const lightStat = document.getElementById("lightStatus");
 const border = document.getElementById("box");
 const text = document.getElementById("text");
 
 lightStatus();
+btnUpdate();
+
+lightswitches.forEach(lightswitches => {
+    lightswitches.addEventListener('click', ()=> toggleClass())
+    lightswitches.addEventListener('click', ()=> btnUpdate())
+})
 
 function toggleClass() {
     body.classList.toggle("on");
-    // text.classList.toggle("light");
     border.classList.toggle("blue");
+    lightStat.classList.toggle("on");
     lightStatus();
+    btnUpdate();
 };
-switch1.addEventListener("click", toggleClass);
-switch2.addEventListener("click", toggleClass);
+
 
 function lightStatus() {
     if (body.classList.contains("on")) {
-        light.innerHTML = "on"
+        lightStat.innerHTML = "on"
     } else {
-        light.innerHTML = "off"
+        lightStat.innerHTML = "off"
     }
+};
+
+function btnUpdate() {
+    if (body.classList.contains("on")) {
+        btnText1.innerHTML = "off"
+        btnText2.innerHTML = "off"
+    } else {
+        btnText1.innerHTML = "on"
+        btnText2.innerHTML = "on"
+    }btnText1
 };
